@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>UniBookShared</title>
+  <base href="./">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<style>
+  html,body {
+    height: calc(100vh - 16px);
+    width: calc(100vw - 16px)
+  }
+  .load-first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+  .load-first img {
+    width: 80px;
+  }
+</style>
+<body>
+  <app-root>
+    <div class="load-first" >
+      <img src="assets/icons/spinner.svg" >
+    </div>
+  </app-root>
+</body>
+</html>

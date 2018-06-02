@@ -1,0 +1,35 @@
+<div class="singInContent">
+  <div class="login-form">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" >
+              <input matInput placeholder="İndiki Şifrə" required [type]="hide ? 'password' : 'text'" [formControlName]="'lastPassword'">
+              <mat-icon matSuffix  (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error >İndiki şifrə daxil edilməyib</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Yeni Şifrə" required [type]="hide2 ? 'password' : 'text'" [formControlName]="'password'">
+              <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error >Yeni şifrə daxil edilməyib</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Şifrəni təsdiq edin" required [type]="hide3 ? 'password' : 'text'" [formControlName]="'passwordConfirmation'">
+              <mat-icon matSuffix (click)="hide3 = !hide3">{{hide3 ? 'visibility' : 'visibility_off'}}</mat-icon>
+              <mat-error >Şifrə daxil edilməyib</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </form>
+  </div>
+
+</div>
