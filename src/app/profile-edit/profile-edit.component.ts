@@ -5,6 +5,7 @@ import {SharedService} from '../shared.service';
 import {ActivatedRoute, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {UserFormData} from '../shared/models/userFormData.model';
 import * as globalVars from '../app.globals';
+import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'app-profile-edit',
   templateUrl: './profile-edit.component.html',
@@ -17,8 +18,10 @@ export class ProfileEditComponent implements OnInit {
   hide2 = true;
   hide3 = true;
   URL: string;
+  langText = 'AZ';
   constructor(private http: HttpClient, private form: FormBuilder,
               private sharedService: SharedService,
+              private translate: TranslateService
   ) {
     const hostname = window.location.hostname;
     console.log(hostname);
@@ -38,6 +41,10 @@ export class ProfileEditComponent implements OnInit {
       'passwordConfirmation': new FormControl('', Validators.required)
     });
   }
+  changeLang(value) {
+    this.translate.use(value);
+    this.langText = value;
+  }
   onSubmit() {
     if (this.userForm.valid) {
       const formData = this.userForm.value;
@@ -47,8 +54,8 @@ export class ProfileEditComponent implements OnInit {
           if (res.code === 'ERROR') {
             return  this.sharedService.createNotification('error', 'Server Xətası', 'Xəta');
           } else if (res.code === 'OK') {
-            setTimeout(() => window.top.location.href = `${this.URL}/ROS/login`, 1000);
-            this.sharedService.createNotification('success', 'Şifrə dəyişdirildi');
+           setTimeout(() => window.top.location.href = `${this.URL}/ROS/login`, 1000);
+              this.sharedService.createNotification('success', 'Şifrə dəyişdirildi');
           } else if (res.code !== 'OK') {
             this.sharedService.createNotification('error', res.code);
           }
@@ -57,9 +64,6 @@ export class ProfileEditComponent implements OnInit {
   }
   getErrorMessage() {
     return this.userForm.get('lastPassword').hasError('required') && 'Indiki Şifrə daxil edilməyib';
-  }
-  onGoBack() {
-    window.history.back();
   }
 
 }

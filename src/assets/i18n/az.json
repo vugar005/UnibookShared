@@ -1,0 +1,11 @@
+{
+"FORM" : {
+  "currentPassword": "İndiki Şifrə",
+  "newPassword": "Yeni Şifrə",
+  "confirmNewPassword": "Şifrəni təsdiq edin",
+  "inputCurrentPassword": "İndiki şifrə daxil edilməyib",
+  "inputNewPassword": "Yeni şifrə daxil edilməyib",
+  "confirmNewPasswordAgain": "Yeni Şifrəni təsdiq edin",
+  "passwordChanged": "Şifrə dəyişdirildi"
+}
+}

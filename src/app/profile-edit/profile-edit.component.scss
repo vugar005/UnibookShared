@@ -1,5 +1,10 @@
 :host {
   display: block;
+  position: relative;
+}
+.lang {
+  position: absolute;
+  right: 0;
 }
 mat-icon {
   cursor: pointer;

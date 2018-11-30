@@ -1,3 +1,11 @@
+<div class="lang">
+  <button class="langBtn" mat-button [matMenuTriggerFor]="menu">{{langText | uppercase}}</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="changeLang('az')">AZ</button>
+    <button mat-menu-item (click)="changeLang('en')">EN</button>
+  </mat-menu>
+</div>
+
 <div class="singInContent">
   <div class="login-form">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
@@ -7,23 +15,23 @@
           </div>
           <div class="form-group">
             <mat-form-field class="example-full-width" >
-              <input matInput placeholder="İndiki Şifrə" required [type]="hide ? 'password' : 'text'" [formControlName]="'lastPassword'">
+              <input matInput placeholder="{{'FORM.currentPassword' | translate}}" required [type]="hide ? 'password' : 'text'" [formControlName]="'lastPassword'">
               <mat-icon matSuffix  (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-              <mat-error >İndiki şifrə daxil edilməyib</mat-error>
+              <mat-error >{{'FORM.inputCurrentPassword' | translate}}</mat-error>
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Yeni Şifrə" required [type]="hide2 ? 'password' : 'text'" [formControlName]="'password'">
+              <input matInput placeholder="{{'FORM.newPassword' | translate}}"  required [type]="hide2 ? 'password' : 'text'" [formControlName]="'password'">
               <mat-icon matSuffix (click)="hide2 = !hide2">{{hide2 ? 'visibility' : 'visibility_off'}}</mat-icon>
-              <mat-error >Yeni şifrə daxil edilməyib</mat-error>
+              <mat-error >{{'FORM.inputNewPassword' | translate}}</mat-error>
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Şifrəni təsdiq edin" required [type]="hide3 ? 'password' : 'text'" [formControlName]="'passwordConfirmation'">
+              <input matInput placeholder="{{'FORM.confirmNewPassword' | translate}}"  required [type]="hide3 ? 'password' : 'text'" [formControlName]="'passwordConfirmation'">
               <mat-icon matSuffix (click)="hide3 = !hide3">{{hide3 ? 'visibility' : 'visibility_off'}}</mat-icon>
-              <mat-error >Şifrə daxil edilməyib</mat-error>
+              <mat-error >{{'FORM.confirmNewPasswordAgain' | translate}}</mat-error>
             </mat-form-field>
           </div>
         </div>

@@ -1,0 +1,11 @@
+{
+  "FORM" : {
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmNewPassword": "Confirm new password",
+    "inputCurrentPassword": "Please Input current password",
+    "inputNewPassword": "Please Input new password",
+    "confirmNewPasswordAgain": "Please Confirm new password again",
+    "passwordChanged": "Password Changed Successfully"
+  }
+}

@@ -3,6 +3,7 @@ import {SnotifyService} from 'ng-snotify';
 import {UserFormData} from './shared/models/userFormData.model';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {AuthService} from './auth/auth.service';
+import * as globalVars from './app.globals';
 
 @Injectable()
 export class SharedService {
@@ -11,9 +12,13 @@ export class SharedService {
   constructor(private snotifyService: SnotifyService,
               private authService: AuthService,
               private http: HttpClient) {
-    this.URL = localStorage.getItem('uni_hostname');
+    const hostname = window.location.hostname;
+    console.log(hostname);
+    this.URL =  hostname !== 'localhost' ? `http://${hostname}` : globalVars.baseUrl;
+    if (this.URL === 'http://192.168.1.78') {
+      this.URL = 'http://192.168.1.78:8082';
+    }
   }
-
   createNotification(type: string, message: string, title = '') {
     switch (type) {
       case 'success':
@@ -50,6 +55,7 @@ export class SharedService {
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       })
     };
+    console.log(this.URL)
     const body = new HttpParams()
       .set('lastPassword', formData.lastPassword)
       .set('password', formData.password)
